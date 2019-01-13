@@ -2,6 +2,8 @@ package com.example.wonjerry.androidrecyclerview.ui.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.LinearLayoutManager
 import com.example.wonjerry.androidrecyclerview.R
 import com.example.wonjerry.androidrecyclerview.ui.adapter.ExampleListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,6 +23,7 @@ class MainActivity : AppCompatActivity(), Clickable {
         val exampleList = listOf("apple", "banana", "kiwi", "mango", "pineapple", "watermelon")
         with(recycler_view) {
             adapter = exampleListAdapter
+            addItemDecoration(DividerItemDecoration(applicationContext, LinearLayoutManager.VERTICAL))
         }
 
         exampleList.forEach(exampleListAdapter::addItem)
