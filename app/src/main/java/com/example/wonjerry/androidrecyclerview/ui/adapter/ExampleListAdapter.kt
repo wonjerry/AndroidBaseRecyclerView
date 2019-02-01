@@ -15,15 +15,11 @@ class ExampleListAdapter(private val clicker: Clickable) : RecyclerView.Adapter<
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(items[position])
 
-    override fun getItemViewType(position: Int): Int = 0
-
     override fun getItemCount(): Int = items.size
 
     fun addItem(item: String) {
-        if (items.contains(item)) {
-            return
-        }
         items.add(item)
+//        notifyItemInserted(items.size - 1)
         notifyDataSetChanged()
     }
 

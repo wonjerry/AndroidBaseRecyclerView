@@ -20,12 +20,23 @@ class MainActivity : AppCompatActivity(), Clickable {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val exampleList = listOf("apple", "banana", "kiwi", "mango", "pineapple", "watermelon")
+        val exampleList = listOf(
+            "apple",
+            "banana",
+            "kiwi",
+            "mango",
+            "pineapple",
+            "watermelon"
+        )
         with(recycler_view) {
             adapter = exampleListAdapter
             addItemDecoration(DividerItemDecoration(applicationContext, LinearLayoutManager.VERTICAL))
         }
 
         exampleList.forEach(exampleListAdapter::addItem)
+
+        btn_add.setOnClickListener {
+            exampleListAdapter.addItem("wonjae")
+        }
     }
 }
